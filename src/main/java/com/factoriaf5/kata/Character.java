@@ -33,6 +33,11 @@ public class Character {
         this.attackDamage = attackDamage;
     }
 
+
+	public void attack(Character enemy) {
+		enemy.setHealth(enemy.getHealth() - 100);
+	}
+
     
 }
 
