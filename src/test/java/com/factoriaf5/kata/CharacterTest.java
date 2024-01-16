@@ -89,7 +89,7 @@ public class CharacterTest {
         assertThat(goku.getHealth(), is(1000));
     }
 
-   /*  @Test
+    /*  @Test
     public void CharacterTestIncreasedBy50() {
         Character goku = new Character();
     

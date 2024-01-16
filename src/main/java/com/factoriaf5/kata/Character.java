@@ -1,6 +1,7 @@
 package com.factoriaf5.kata;
 
 public class Character {
+
     
     int health = 1000;
     int level = 1;
