@@ -42,17 +42,18 @@ public void setHealQuantity(int healQuantity) {
 
 
 	public void attack(Character enemy) {
-        if (enemy.health > attackDamage) {
+
+        
+        if (enemy.health > attackDamage && enemy != this) {
             enemy.setHealth(enemy.getHealth() - attackDamage);
             
         }
 
-        if (enemy.health <= attackDamage) {
+        if (enemy.health <= attackDamage && enemy != this) {
             enemy.setHealth(0);
             enemy.setAlive(false);
             
         }
-		
 
 	}
 

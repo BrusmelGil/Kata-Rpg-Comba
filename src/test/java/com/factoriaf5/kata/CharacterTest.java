@@ -69,16 +69,34 @@ public class CharacterTest {
     } 
 
     @Test
-    public void CharacterTestCantExceed1000() {
-        Character batman = new Character();
-        Character talia = new Character();
+    public void CharacterTestCantHealingHealthExceed1000() {
+        Character goku = new Character();
+        Character pikoro = new Character();
 
-        talia.setHealth(950);
+        pikoro.setHealth(950);
         
-        batman.heal(talia);
+        goku.heal(pikoro);
         
-        assertThat(talia.getHealth(), is(1000));
+        assertThat(pikoro.getHealth(), is(1000));
     }
 
+    @Test
+    public void CharacterTestDamageIsReducedBy50() {
+        Character goku = new Character();
+    
+    goku.attack(goku);
+        
+        assertThat(goku.getHealth(), is(1000));
+    }
+
+   /*  @Test
+    public void CharacterTestIncreasedBy50() {
+        Character goku = new Character();
+    
+        goku.heal(goku);
+        
+        assertThat(goku.getHealth(), is(500));
+    }
+ */
 
 }
