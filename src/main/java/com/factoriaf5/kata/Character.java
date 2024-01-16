@@ -6,11 +6,18 @@ public class Character {
     int level = 1;
     boolean isAlive = true;
     int attackDamage = 100;
+    private int healQuantity = 200;
 
 
     public int getHealth() {
         return health;
     }
+    public int getHealQuantity() {
+    return healQuantity;
+}
+public void setHealQuantity(int healQuantity) {
+    this.healQuantity = healQuantity;
+}
     public void setHealth(int health) {
         this.health = health;
     }
@@ -35,9 +42,50 @@ public class Character {
 
 
 	public void attack(Character enemy) {
-		enemy.setHealth(enemy.getHealth() - 100);
+        if (enemy.health > attackDamage) {
+            enemy.setHealth(enemy.getHealth() - attackDamage);
+            
+        }
+
+        if (enemy.health <= attackDamage) {
+            enemy.setHealth(0);
+            enemy.setAlive(false);
+            
+        }
+		
+
 	}
+
+
+    public void heal(Character friend) {
+        if(friend.health > 0) {
+            friend.setHealth(friend.getHealth() + healQuantity);
+        }
+        
+        if (friend.health == 0) {
+            assert true;
+        } 
+    
+        if (friend.health + healQuantity > 1000) {
+            friend.setHealth(1000);
+        }
+
+        if (friend.health + healQuantity > 1000) {
+            friend.setHealth(1000);
+            
+        }
 
     
 }
+
+
+
+}
+
+
+
+
+
+
+
 
