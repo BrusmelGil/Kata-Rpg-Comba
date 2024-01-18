@@ -80,6 +80,7 @@ public class CharacterTest {
         assertThat(pikoro.getHealth(), is(1000));
     }
 
+
     @Test
     public void CharacterTestDamageIsReducedBy50() {
         Character goku = new Character();
@@ -89,14 +90,14 @@ public class CharacterTest {
         assertThat(goku.getHealth(), is(1000));
     }
 
-    /*  @Test
+    @Test
     public void CharacterTestIncreasedBy50() {
         Character goku = new Character();
     
         goku.heal(goku);
         
-        assertThat(goku.getHealth(), is(500));
+        assertThat(goku.getHealth(), is(1000));
     }
- */
+
 
 }

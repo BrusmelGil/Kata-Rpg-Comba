@@ -58,6 +58,17 @@ public void setHealQuantity(int healQuantity) {
 
 	}
 
+    private int calculateDamage(Character enemy) {
+        int baseDamage = attackDamage;
+
+        if (this.level - enemy.getLevel() >= 5) {
+            baseDamage = (int) (baseDamage * 1.5);
+        }
+
+        return baseDamage;
+    }
+
+
 
     public void heal(Character friend) {
         if(friend.health > 0) {
@@ -70,11 +81,6 @@ public void setHealQuantity(int healQuantity) {
     
         if (friend.health + healQuantity > 1000) {
             friend.setHealth(1000);
-        }
-
-        if (friend.health + healQuantity > 1000) {
-            friend.setHealth(1000);
-            
         }
 
     
