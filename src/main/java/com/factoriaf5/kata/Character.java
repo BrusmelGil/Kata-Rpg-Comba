@@ -59,7 +59,7 @@ public void setHealQuantity(int healQuantity) {
 	}
 
     private int calculateDamage(Character enemy) {
-        int baseDamage = attackDamage;
+        int baseDamage = attackDamage; 
 
         if (this.level - enemy.getLevel() >= 5) {
             baseDamage = (int) (baseDamage * 1.5);
@@ -85,8 +85,6 @@ public void setHealQuantity(int healQuantity) {
 
     
 }
-
-
 
 }
 

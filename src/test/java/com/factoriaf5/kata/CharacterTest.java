@@ -99,5 +99,14 @@ public class CharacterTest {
         assertThat(goku.getHealth(), is(1000));
     }
 
+    @Test
+    public void CharacterTestAttackMaxRange() {
+        Character goku = new Character();
+    
+    }
+
+
+
+
 
 }
