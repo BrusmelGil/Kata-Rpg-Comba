@@ -2,7 +2,6 @@ package com.factoriaf5.kata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -65,8 +64,21 @@ public class CharacterTest {
 
         assertThat(freezer.getHealth(), is(300));
 
+    } 
+
+
+    @Test
+    public void CharactersTesCanHealhiself() {
+        //Given
+        Character goku = new Character();
+        goku.setHealth(300);
+
+        goku.heal(goku);
+
+        assertThat(goku.getHealth(), is(500));
 
     } 
+
 
     @Test
     public void CharacterTestCantHealingHealthExceed1000() {
@@ -80,33 +92,32 @@ public class CharacterTest {
         assertThat(pikoro.getHealth(), is(1000));
     }
 
-
     @Test
-    public void CharacterTestDamageIsReducedBy50() {
-        Character goku = new Character();
-    
-    goku.attack(goku);
+    public void CharacterTestDeals50PercentLessDamageToHighLevelEnemy() {
         
-        assertThat(goku.getHealth(), is(1000));
-    }
-
-    @Test
-    public void CharacterTestIncreasedBy50() {
         Character goku = new Character();
-    
-        goku.heal(goku);
+        Character freezer = new Character();
+
+        freezer.setLevel(7);
+
+        goku.attack(freezer);
         
-        assertThat(goku.getHealth(), is(1000));
+        assertThat(freezer.getHealth(), is(950));
     }
 
     @Test
-    public void CharacterTestAttackMaxRange() {
-        Character goku = new Character();
-    
-    }
+    public void CharacterTestDeals50PercentMoreDamageToHighLevelEnemy() {
 
+    Character goku = new Character();
+    Character freezer = new Character();
+        
+        goku.setLevel(10);
+        freezer.setLevel(4);
 
-
+        goku.attack(freezer);
+        
+        assertThat(freezer.getHealth(), is(850));
+    } 
 
 
 }

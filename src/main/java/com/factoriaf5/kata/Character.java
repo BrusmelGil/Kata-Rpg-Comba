@@ -43,31 +43,35 @@ public void setHealQuantity(int healQuantity) {
 
 
 	public void attack(Character enemy) {
+        int damage;
+        int levelDifference = enemy.getLevel() - this.getLevel();
 
-        
-        if (enemy.health > attackDamage && enemy != this) {
-            enemy.setHealth(enemy.getHealth() - attackDamage);
+        if (enemy == this) {
+            return ;
             
         }
 
-        if (enemy.health <= attackDamage && enemy != this) {
+        if (levelDifference >= 5) {
+            damage = attackDamage / 2;
+        } else if (levelDifference <= -5) {
+            damage = attackDamage / 100 * 150;
+        } else {
+            damage = attackDamage;
+        }
+
+        if (enemy.health > damage) {
+            enemy.setHealth(enemy.getHealth() - damage);
+            
+        } 
+        
+        if (enemy.health <= damage) {
             enemy.setHealth(0);
             enemy.setAlive(false);
             
         }
 
+
 	}
-
-    private int calculateDamage(Character enemy) {
-        int baseDamage = attackDamage; 
-
-        if (this.level - enemy.getLevel() >= 5) {
-            baseDamage = (int) (baseDamage * 1.5);
-        }
-
-        return baseDamage;
-    }
-
 
 
     public void heal(Character friend) {
